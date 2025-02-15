@@ -1,17 +1,145 @@
 package org.example;
+import javabeans.Suma;
+import javabeans.consolePrints;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
+/**
+ * Clase principal.
+ */
 public class Main {
+    /**
+     * Crea una UI en consola en la que el usuario puede navegar entre distintos men&uacute;s para
+     * realizar las distintas operaciones.
+     *
+     * @param args
+     * @throws IllegalArgumentException en caso de que el input introducido por el usuario no sea el esperado.
+     * @see Suma
+     * @see consolePrints
+     */
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        boolean calculadoraOn = true;
+        // Crea el Scanner que se usará en el programa.
+        Scanner scan = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        do {
+            // Pide el tipo de operación.
+            System.out.println(consolePrints.getInitView());
+            String operationType = scan.next().toLowerCase();
+
+            switch (operationType){
+                case "+": {
+                    // Pide el tipo de suma
+                    System.out.println(consolePrints.getAddView());
+                    int subOperationType = scan.nextInt();
+
+                    switch (subOperationType) {
+                        case 1: {
+                            // Pide dos números reales
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num2 = scan.nextDouble();
+
+                            // Imprime la suma en consola
+                            System.out.println(consolePrints.resultSentence() + " "
+                                    + Suma.sumaDosReales(num1, num2));
+                            break;
+                        }
+                        case 2: {
+                            // Pide dos números enteros
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+
+                            // Imprime la suma en consola
+                            System.out.println(consolePrints.resultSentence() + " "
+                                    + Suma.sumaDosEnteros(num1, num2));
+                            break;
+                        }
+                        case 3: {
+                            // Pide tres números reales
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num2 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num3 = scan.nextDouble();
+
+                            // Imprime la suma en consola
+                            System.out.println(consolePrints.resultSentence() + " "
+                                    + Suma.sumaTresReales(num1, num2, num3));
+                            break;
+                        }
+                        case 4: {
+                            // Suma acumulada
+                            String input; // Flag variable
+
+                            do {
+                                // Pide números hasta que se escriba '='
+                                System.out.println(consolePrints.nextNumber() + consolePrints.exitKey());
+                                input = scan.next();
+                                try {
+                                    // Revisa si es un double
+                                    double nextDouble = Double.parseDouble(input);
+
+                                    // Imprime la suma en consola
+                                    System.out.println(consolePrints.resultSentence() + " "
+                                            + Suma.sumaAcumulada(nextDouble));
+
+                                } catch (NumberFormatException e2) {
+                                    // Revisa si es la tecla para salir
+                                    if (input.equalsIgnoreCase("=")) {
+                                        continue;
+                                    } else {
+                                        // Si no es nada de lo anterior, crea un error
+                                        Suma.resetAcumulador();
+                                        throw new IllegalArgumentException(
+                                                "La opci\u00F3n debe ser un n\u00FAmero o '=' para salir"
+                                        );
+                                    }
+                                }
+                            }
+                            while (!input.equalsIgnoreCase("="));
+                            Suma.resetAcumulador();
+                            break;
+                        }
+                        default: {
+                            throw new IllegalArgumentException("Opci\u00F3n no valida");
+                        }
+                    }
+                    break;
+                }
+
+                case "-": {
+                    break;
+                }
+
+                case "x": {
+                    break;
+                }
+
+                case "/": {
+                    break;
+                }
+
+                case "s": {
+                    calculadoraOn = false;
+                    break;
+                }
+
+                default: {
+                    calculadoraOn = false;
+                    throw new IllegalArgumentException("Opci\u00F3n no v\u00E1lida");}
+            }
         }
+        while (calculadoraOn);
+        // Ya no hace falta leer más, por lo que se cierra el Scanner.
+        scan.close();
     }
 }
