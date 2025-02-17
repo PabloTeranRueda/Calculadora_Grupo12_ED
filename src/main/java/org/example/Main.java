@@ -3,7 +3,6 @@ import javabeans.Suma;
 import javabeans.consolePrints;
 
 import java.util.Scanner;
-
 /**
  * Clase principal.
  */
@@ -42,9 +41,8 @@ public class Main {
                             System.out.println(consolePrints.nextNumber());
                             double num2 = scan.nextDouble();
 
-                            // Imprime la suma en consola
-                            System.out.println(consolePrints.resultSentence() + " "
-                                    + Suma.sumaDosReales(num1, num2));
+                            // Imprime la suma en consola o lanza un error si se ha introducido un número negativo
+                            handleResult(Suma.sumaDosReales(num1, num2));
                             break;
                         }
                         case 2: {
@@ -55,9 +53,8 @@ public class Main {
                             System.out.println(consolePrints.nextNumber());
                             int num2 = scan.nextInt();
 
-                            // Imprime la suma en consola
-                            System.out.println(consolePrints.resultSentence() + " "
-                                    + Suma.sumaDosEnteros(num1, num2));
+                            // Imprime la suma en consola o lanza un error si se ha introducido un número negativo
+                            handleResult(Suma.sumaDosEnteros(num1, num2));
                             break;
                         }
                         case 3: {
@@ -71,9 +68,8 @@ public class Main {
                             System.out.println(consolePrints.nextNumber());
                             double num3 = scan.nextDouble();
 
-                            // Imprime la suma en consola
-                            System.out.println(consolePrints.resultSentence() + " "
-                                    + Suma.sumaTresReales(num1, num2, num3));
+                            // Imprime la suma en consola o lanza un error si se ha introducido un número negativo
+                            handleResult(Suma.sumaTresReales(num1, num2, num3));
                             break;
                         }
                         case 4: {
@@ -88,9 +84,11 @@ public class Main {
                                     // Revisa si es un double
                                     double nextDouble = Double.parseDouble(input);
 
-                                    // Imprime la suma en consola
-                                    System.out.println(consolePrints.resultSentence() + " "
-                                            + Suma.sumaAcumulada(nextDouble));
+                                    /*
+                                    Imprime la suma en consola
+                                    o lanza un error si se ha introducido un número negativo
+                                    */
+                                    handleResult(Suma.sumaAcumulada(nextDouble));
 
                                 } catch (NumberFormatException e2) {
                                     // Revisa si es la tecla para salir
@@ -141,5 +139,19 @@ public class Main {
         while (calculadoraOn);
         // Ya no hace falta leer más, por lo que se cierra el Scanner.
         scan.close();
+    }
+
+    /**
+     * Lanza un error si el n&uacute;mero introducido es negativo o imprime el resultado.
+     * @param resultado resultado de una operaci&oacute;n.
+     * @throws IllegalArgumentException en caso de que se haya introducido un número negativo.
+     */
+    public static void handleResult(double resultado) {
+
+        if (resultado < 0) {
+            throw new IllegalArgumentException("No puedes usar números negativos");
+        }
+        System.out.println(consolePrints.resultSentence() + " "
+                + resultado);
     }
 }
