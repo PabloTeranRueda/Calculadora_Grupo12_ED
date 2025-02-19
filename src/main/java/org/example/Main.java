@@ -1,4 +1,5 @@
 package org.example;
+import javabeans.Producto;
 import javabeans.Suma;
 import javabeans.consolePrints;
 
@@ -119,6 +120,62 @@ public class Main {
                 }
 
                 case "x": {
+                    // Pide el tipo de multiplicación
+                    System.out.println(consolePrints.getMultiplyView());
+                    int subOperationType = scan.nextInt();
+
+                    switch (subOperationType) {
+                        case 1: {
+                            // Pide dos números reales
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num2 = scan.nextDouble();
+
+                            System.out.println(Producto.multiplicarReales(num1,num2));
+                            break;
+                        }
+                        case 2: {
+                            // Pide dos números enteros
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+
+                            System.out.println(Producto.multiplicarEnteros(num1,num2));
+                            break;
+                        }
+                        case 3: {
+                            // Pide tres números reales
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num2 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num3 = scan.nextDouble();
+
+                            System.out.println(Producto.multiplicarTriple(num1,num2,num3));
+                            break;
+                        }
+                        case 4: {
+                            // Pide dos números enteros
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+
+                            System.out.println(Producto.potencia(num1,num2));
+                            break;
+                        }
+                        default: {
+                            throw new IllegalArgumentException("Opci\u00F3n no valida");
+                        }
+                    }
                     break;
                 }
 
