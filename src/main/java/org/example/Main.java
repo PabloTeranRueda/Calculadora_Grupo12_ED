@@ -1,4 +1,5 @@
 package org.example;
+import javabeans.Cociente;
 import javabeans.Producto;
 import javabeans.Suma;
 import javabeans.consolePrints;
@@ -15,6 +16,9 @@ public class Main {
      * @param args
      * @throws IllegalArgumentException en caso de que el input introducido por el usuario no sea el esperado.
      * @see Suma
+     * @See Cociente
+     * @See Producto
+     * @See Resta
      * @see consolePrints
      */
     public static void main(String[] args) {
@@ -180,7 +184,54 @@ public class Main {
                 }
 
                 case "/": {
-                    break;
+                    // Pide el tipo de Division
+                    System.out.println(consolePrints.getdivisionView());
+                    int subOperationType = scan.nextInt();
+
+                    switch (subOperationType) {
+                        case 1: {
+                            // Pide dos números Enteros
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+
+                            System.out.println(Cociente.dividirEnteros(num1,num2));
+                            break;
+                        }
+                        case 2: {
+                            // Pide dos números Reales
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+
+                            System.out.println(Cociente.dividirReales(num1,num2));
+                            break;
+                        }
+                        case 3: {
+                            // Pide un numero para el inverso
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(Cociente.inverso(num1));
+                            break;
+                        }
+                        case 4: {
+                            // Pide dos números enteros para la raiz
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(Cociente.raiz(num1));
+                            break;
+                        }
+                        default: {
+                            throw new IllegalArgumentException("Opci\u00F3n no valida");
+                        }
+                    }
+                 break;
                 }
 
                 case "s": {
