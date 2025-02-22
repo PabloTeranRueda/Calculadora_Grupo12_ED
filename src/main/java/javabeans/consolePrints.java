@@ -48,20 +48,6 @@ public class consolePrints {
     }
 
     /**
-     * Submen&uacute; de la operaci&oacute;n Cociente
-     *
-     * @return Posibles operaciones de Cociente
-     */
-    public static String getdivisionView(){
-        return """
-                \u00BFQu\u00E9 tipo de suma quieres hacer?
-                1 - Dividir dos n\u00FAmeros reales
-                2 - Dividir dos n\u00FAmeros enteros
-                3 - El inverso de un numero 
-                4 - La raiz cuadrada de un nuermo
-                """;
-     
-     /**
      * Submen&uacute; de la operaci&oacute;n multiplicación.
      *
      * @return Posibles operaciones de multiplicación.
