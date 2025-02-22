@@ -133,7 +133,8 @@ public class Main {
                             System.out.println(consolePrints.nextNumber());
                             double num2 = scan.nextDouble();
 
-                            System.out.println(Producto.multiplicarReales(num1,num2));
+                            System.out.println(consolePrints.resultSentence()
+                                    + Producto.multiplicarReales(num1,num2));
                             break;
                         }
                         case 2: {
@@ -144,7 +145,8 @@ public class Main {
                             System.out.println(consolePrints.nextNumber());
                             int num2 = scan.nextInt();
 
-                            System.out.println(Producto.multiplicarEnteros(num1,num2));
+                            System.out.println(consolePrints.resultSentence()
+                                    + Producto.multiplicarEnteros(num1,num2));
                             break;
                         }
                         case 3: {
@@ -158,7 +160,8 @@ public class Main {
                             System.out.println(consolePrints.nextNumber());
                             double num3 = scan.nextDouble();
 
-                            System.out.println(Producto.multiplicarTriple(num1,num2,num3));
+                            System.out.println(consolePrints.resultSentence()
+                                    + Producto.multiplicarTriple(num1,num2,num3));
                             break;
                         }
                         case 4: {
@@ -169,7 +172,8 @@ public class Main {
                             System.out.println(consolePrints.nextNumber());
                             int num2 = scan.nextInt();
 
-                            System.out.println(Producto.potencia(num1,num2));
+                            System.out.println(consolePrints.resultSentence()
+                                    + Producto.potencia(num1,num2));
                             break;
                         }
                         default: {
@@ -180,7 +184,57 @@ public class Main {
                 }
 
                 case "/": {
-                    break;
+                    // Pide el tipo de Division
+                    System.out.println(consolePrints.getDivisionView());
+                    int subOperationType = scan.nextInt();
+
+                    switch (subOperationType) {
+                        case 1: {
+                            // Pide dos números Enteros
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+
+                            System.out.println(consolePrints.resultSentence()
+                                    + Cociente.dividirEnteros(num1,num2));
+                            break;
+                        }
+                        case 2: {
+                            // Pide dos números Reales
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+                            System.out.println(consolePrints.resultSentence()
+                                    + Cociente.dividirReales(num1,num2));
+                            break;
+                        }
+                        case 3: {
+                            // Pide un numero para el inverso
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(consolePrints.resultSentence()
+                                    + Cociente.inverso(num1));
+                            break;
+                        }
+                        case 4: {
+                            // Pide dos números enteros para la raiz
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.resultSentence()
+                                    + Cociente.raiz(num1));
+                            break;
+                        }
+                        default: {
+                            throw new IllegalArgumentException("Opci\u00F3n no valida");
+                        }
+                    }
+                 break;
                 }
 
                 case "s": {
@@ -208,7 +262,7 @@ public class Main {
         if (resultado < 0) {
             throw new IllegalArgumentException("No puedes usar números negativos");
         }
-        System.out.println(consolePrints.resultSentence() + " "
+        System.out.println(consolePrints.resultSentence()
                 + resultado);
     }
 }
