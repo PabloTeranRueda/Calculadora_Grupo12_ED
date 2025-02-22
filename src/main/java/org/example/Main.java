@@ -1,5 +1,4 @@
 package org.example;
-import javabeans.Cociente;
 import javabeans.Producto;
 import javabeans.Suma;
 import javabeans.consolePrints;
@@ -16,9 +15,6 @@ public class Main {
      * @param args
      * @throws IllegalArgumentException en caso de que el input introducido por el usuario no sea el esperado.
      * @see Suma
-     * @See Cociente
-     * @See Producto
-     * @See Resta
      * @see consolePrints
      */
     public static void main(String[] args) {
