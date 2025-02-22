@@ -1,8 +1,5 @@
 package org.example;
-import javabeans.Cociente;
-import javabeans.Producto;
-import javabeans.Suma;
-import javabeans.consolePrints;
+import javabeans.*;
 
 import java.util.Scanner;
 /**
@@ -120,6 +117,85 @@ public class Main {
                 }
 
                 case "-": {
+                    // Pide el tipo de resta
+                    System.out.println(consolePrints.getSubtractionView());
+                    int subOperationType = scan.nextInt();
+
+                    switch (subOperationType) {
+                        case 1: {
+                            // Pide dos números reales
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num2 = scan.nextDouble();
+
+                            System.out.println(Resta.restar(num1, num2));
+
+                            break;
+                        }
+                        case 2: {
+                            // Pide dos números enteros
+                            System.out.println(consolePrints.nextNumber());
+                            int num1 = scan.nextInt();
+
+                            System.out.println(consolePrints.nextNumber());
+                            int num2 = scan.nextInt();
+
+                            System.out.println(Resta.restar(num1, num2));
+
+                            break;
+                        }
+                        case 3: {
+                            // Pide tres números reales
+                            System.out.println(consolePrints.nextNumber());
+                            double num1 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num2 = scan.nextDouble();
+
+                            System.out.println(consolePrints.nextNumber());
+                            double num3 = scan.nextDouble();
+
+                            System.out.println(Resta.restar(num1, num2, num3));
+
+                            break;
+                        }
+                        case 4: {
+                            // Resta acumulada
+                            String input; // Flag variable
+
+                            do {
+                                // Pide números hasta que se escriba '='
+                                System.out.println(consolePrints.nextNumber() + consolePrints.exitKey());
+                                input = scan.next();
+                                try {
+                                    // Revisa si es un double
+                                    double nextDouble = Double.parseDouble(input);
+
+                                    System.out.println(Resta.restaAcumulada(nextDouble));
+
+                                } catch (NumberFormatException e2) {
+                                    // Revisa si es la tecla para salir
+                                    if (input.equalsIgnoreCase("=")) {
+                                        continue;
+                                    } else {
+                                        // Si no es nada de lo anterior, crea un error
+                                        Resta.resetAcumulador();
+                                        throw new IllegalArgumentException(
+                                                "La opci\u00F3n debe ser un n\u00FAmero o '=' para salir"
+                                        );
+                                    }
+                                }
+                            }
+                            while (!input.equalsIgnoreCase("="));
+                            Resta.resetAcumulador();
+                            break;
+                        }
+                        default: {
+                            throw new IllegalArgumentException("Opci\u00F3n no valida");
+                        }
+                    }
                     break;
                 }
 

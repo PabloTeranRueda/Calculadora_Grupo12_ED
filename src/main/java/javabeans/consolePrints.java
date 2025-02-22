@@ -48,6 +48,21 @@ public class consolePrints {
     }
 
     /**
+     * Submen&uacute; de la operaci&oacute;n Resta.
+     *
+     * @return Posibles operaciones de Resta
+     */
+    public static String getSubtractionView() {
+        return """
+                \u00BFQu\u00E9 tipo de resta quieres hacer?
+                1 - Restar dos n\u00FAmeros reales
+                2 - Restar dos n\u00FAmeros enteros
+                3 - Restar tres n\u00FAmeros reales
+                4 - Restar concatenadamente n\u00FAmeros reales
+                """;
+    }
+
+    /**
      * Submen&uacute; de la operaci&oacute;n Cociente
      *
      * @return Posibles operaciones de Cociente

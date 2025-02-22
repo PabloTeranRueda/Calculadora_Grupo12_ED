@@ -9,6 +9,13 @@ public class Resta {
 
     private static double acumulador = 0;
 
+    /**
+     * Restablece el acumulador a cero.
+     */
+    public static void resetAcumulador() {
+        acumulador = 0;
+    }
+
     public Resta() {
         this.acumulador = 0;
     }
@@ -49,15 +56,8 @@ public class Resta {
      * @param valor Número a restar del acumulado.
      */
     public static double restaAcumulada(double valor) {
-        acumulador += valor;
+        acumulador -= valor;
         return acumulador;
-    }
-
-    /**
-     * Restablece el acumulador a cero.
-     */
-    public static void resetAcumulador() {
-        acumulador = 0;
     }
 
 }
