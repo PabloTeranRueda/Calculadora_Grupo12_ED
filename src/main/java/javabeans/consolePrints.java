@@ -52,7 +52,7 @@ public class consolePrints {
      *
      * @return Posibles operaciones de Cociente
      */
-    public static String getdivisionView(){
+    public static String getDivisionView() {
         return """
                 \u00BFQu\u00E9 tipo de suma quieres hacer?
                 1 - Dividir dos n\u00FAmeros reales
@@ -60,7 +60,7 @@ public class consolePrints {
                 3 - El inverso de un numero 
                 4 - La raiz cuadrada de un nuermo
                 """;
-     
+    }
      /**
      * Submen&uacute; de la operaci&oacute;n multiplicación.
      *
@@ -98,7 +98,7 @@ public class consolePrints {
      */
     public static String resultSentence(){
         return """
-                El resultado de la operacion es:
+                El resultado de la operacion es: 
                 """;
     }
 
