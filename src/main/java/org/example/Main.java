@@ -2,6 +2,7 @@ package org.example;
 import javabeans.Producto;
 import javabeans.Suma;
 import javabeans.consolePrints;
+import javabeans.Cociente;
 
 import java.util.Scanner;
 /**
