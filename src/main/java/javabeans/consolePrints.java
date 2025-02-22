@@ -60,6 +60,20 @@ public class consolePrints {
                 3 - El inverso de un numero 
                 4 - La raiz cuadrada de un nuermo
                 """;
+     
+     /**
+     * Submen&uacute; de la operaci&oacute;n multiplicación.
+     *
+     * @return Posibles operaciones de multiplicación.
+     */
+    public static String getMultiplyView(){
+        return """
+                \u00BFQu\u00E9 tipo de suma quieres hacer?
+                1 - Multiplicar dos n\u00FAmeros reales
+                2 - Multiplicar dos n\u00FAmeros enteros
+                3 - Multiplicar tres n\u00FAmeros reales
+                4 - Elevar un número a una potencia. Primero la base, luego el exponente
+                """;
     }
     /**
      * @return String que solicita el siguiente n&uacute;mero con el que operar.
@@ -87,4 +101,5 @@ public class consolePrints {
                 El resultado de la operacion es:
                 """;
     }
+
 }
