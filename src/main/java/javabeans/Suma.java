@@ -2,7 +2,7 @@ package javabeans;
 
 /**
  * Clase con m&eacute;todos para sumar n&uacute;meros enteros y reales.
- *
+ * @version 0.2
  * @author Pablo Ter&aacute;n Rueda (Github: PabloTeranRueda).
  * */
 

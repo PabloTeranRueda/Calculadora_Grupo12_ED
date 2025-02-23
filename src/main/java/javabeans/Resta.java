@@ -2,7 +2,7 @@ package javabeans;
 /**
  * Clase que implementa operaciones de resta.
  * @author Andrés Bella (GitHub: andresBella96)
- * @version 1.0
+ * @version 0.3
  * @see org.example.Main
  */
 public class Resta {
@@ -14,10 +14,6 @@ public class Resta {
      */
     public static void resetAcumulador() {
         acumulador = 0;
-    }
-
-    public Resta() {
-        this.acumulador = 0;
     }
 
     /**
@@ -54,6 +50,7 @@ public class Resta {
     /**
      * Acumula un valor restado al valor guardado.
      * @param valor Número a restar del acumulado.
+     * @return - Valor acumulado de la resta.
      */
     public static double restaAcumulada(double valor) {
         acumulador -= valor;

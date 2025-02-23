@@ -2,6 +2,9 @@ package javabeans;
 
 /**
  * Clase que agrupa los textos que se imprimir&aacute;n en pantalla.
+ * @author Pablo Terán
+ * @version 0.1
+ * @see org.example.Main
  */
 
 public class consolePrints {
